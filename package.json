@@ -1,8 +1,8 @@
 {
   "name": "filixer-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "filixer backend",
+  "author": "thanhhuy",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
