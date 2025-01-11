@@ -1,0 +1,12 @@
+{
+  "_id": { "$oid": "67483a6676bd4e8c615243a0" },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/avatar-default-1732786790704.svg",
+  "fieldname": "file",
+  "originalname": "avatar-default.svg",
+  "size": { "$numberInt": "509" },
+  "mimetype": "image/svg+xml",
+  "isDeleted": false,
+  "createdAt": { "$date": { "$numberLong": "1732786790948" } },
+  "updatedAt": { "$date": { "$numberLong": "1732786790948" } },
+  "__v": { "$numberInt": "0" }
+}
