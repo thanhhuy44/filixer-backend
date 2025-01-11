@@ -6,7 +6,7 @@ import { AppModule } from '@/modules/app/app.module';
 
 import { TransformInterceptor } from './common/response.interceptor';
 
-export async function bootstrap() {
+ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.useGlobalPipes(
@@ -45,3 +45,6 @@ export async function bootstrap() {
   });
   await app.listen(process.env.PORT);
 }
+
+
+bootstrap()
