@@ -1,4 +1,15 @@
 {
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+}
+
+-----------------------
+
+{
   "version": 2,
   "builds": [
     {
