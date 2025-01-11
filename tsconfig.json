@@ -17,6 +17,8 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
     "paths": {
       "@/*": ["src/*"],
       "~/*": ["src/modules/*"]
