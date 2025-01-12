@@ -1,1 +1,2 @@
-import '../src/main'
+// import '../src/main'
+import '../dist/src/main.js'
