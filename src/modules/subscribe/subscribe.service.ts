@@ -55,6 +55,10 @@ export class SubscribeService {
   }
 
   update(id: number, updateSubscribeDto: UpdateSubscribeDto) {
+    console.log(
+      '🚀 ~ SubscribeService ~ update ~ updateSubscribeDto:',
+      updateSubscribeDto,
+    );
     return `This action updates a #${id} subscribe`;
   }
 
