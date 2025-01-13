@@ -18,6 +18,6 @@ export class ChatGateway {
   handleMessage(client: any, payload: any): string {
     console.log('🚀 ~ ChatGateway ~ handleMessage ~ payload:', payload);
     console.log('🚀 ~ ChatGateway ~ handleMessage ~ client:', client);
-    return 'Hello world!';
+    return 'Hello world 1!';
   }
 }
