@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "67541aa0cddef231f44c693d"
+  },
+  "article": "6743f76c1d5d0d509c17d455",
+  "replies": [],
+  "content": "Bài viết hay quá",
+  "likeCount": 1,
+  "likedBy": [
+    "67483a5276bd4e8c6152439d"
+  ],
+  "createdBy": "674b574ed681889edf50c430",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-07T09:51:28.485Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-07T09:51:28.485Z"
+  },
+  "__v": 0
+}]

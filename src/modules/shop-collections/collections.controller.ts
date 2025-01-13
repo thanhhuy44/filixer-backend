@@ -8,17 +8,17 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 
+import { MongoIdDto } from '@/common/dto/mongo-params.dto';
 import { PaginationDto } from '@/common/dto/pagination.dto';
 
 import { CollectionsService } from './collections.service';
 import { CreateCollectionDto } from './dto/create-collection.dto';
 import { UpdateCollectionDto } from './dto/update-collection.dto';
 
-@ApiTags('Collection')
-@ApiBearerAuth('JWT-Auth')
-@Controller('collections')
+@ApiTags('Shop Collection')
+@Controller('shop-collections')
 export class CollectionsController {
   constructor(private readonly collectionsService: CollectionsService) {}
 
@@ -35,23 +35,26 @@ export class CollectionsController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    const data = await this.collectionsService.findOne(id);
+  async findOne(@Param() params: MongoIdDto) {
+    const data = await this.collectionsService.findOne(params.id);
+    return { data };
+  }
+
+  @Get('info/:slug')
+  async findOneBySlug(@Param('slug') slug: string) {
+    const data = await this.collectionsService.findOneBySlug(slug);
     return { data };
   }
 
   @Patch(':id')
-  async update(
-    @Param('id') id: string,
-    @Body() updateCollectionDto: UpdateCollectionDto,
-  ) {
-    const data = await this.collectionsService.update(id, updateCollectionDto);
+  async update(@Param() params: MongoIdDto, @Body() body: UpdateCollectionDto) {
+    const data = await this.collectionsService.update(params.id, body);
     return { data };
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
-    const data = await this.collectionsService.remove(id);
+  async remove(@Param() params: MongoIdDto) {
+    const data = await this.collectionsService.remove(params.id);
     return { data };
   }
 }

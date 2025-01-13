@@ -12,13 +12,13 @@ import { ESortDirection } from '@/types/enum';
 
 import { CreateCollectionDto } from './dto/create-collection.dto';
 import { UpdateCollectionDto } from './dto/update-collection.dto';
-import { Collection } from './entities/collection.entity';
+import { ArticleCollection } from './entities/collection.entity';
 
 @Injectable()
 export class CollectionsService {
   constructor(
-    @InjectModel(Collection.name)
-    private readonly CollectionModel: Model<Collection>,
+    @InjectModel(ArticleCollection.name)
+    private readonly CollectionModel: Model<ArticleCollection>,
   ) {}
 
   async create(body: CreateCollectionDto) {

@@ -6,7 +6,10 @@ import { User, UserSchema } from '~/users/entities/user.entity';
 
 import { CommentsController } from './comments.controller';
 import { CommentsService } from './comments.service';
-import { Comment, CommentSchema } from './entities/comment.entity';
+import {
+  ArticleComment,
+  ArticleCommentSchema,
+} from './entities/comment.entity';
 
 @Module({
   imports: [
@@ -20,8 +23,8 @@ import { Comment, CommentSchema } from './entities/comment.entity';
         schema: UserSchema,
       },
       {
-        name: Comment.name,
-        schema: CommentSchema,
+        name: ArticleComment.name,
+        schema: ArticleCommentSchema,
       },
     ]),
   ],

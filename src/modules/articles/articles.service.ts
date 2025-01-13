@@ -10,8 +10,8 @@ import { Model } from 'mongoose';
 import { PaginationDto } from '@/common/dto/pagination.dto';
 import { EArticleStatus, ESortDirection } from '@/types/enum';
 import { convertToSlug } from '@/utils/helpers';
-import { Category } from '~/categories/entities/category.entity';
-import { Comment } from '~/comments/entities/comment.entity';
+import { ArticleCategory } from '~/article-categories/entities/category.entity';
+import { ArticleComment } from '~/article-comments/entities/comment.entity';
 
 import { CreateArticleDto } from './dto/create-article.dto';
 import { SearchDto } from './dto/search.dto';
@@ -21,8 +21,10 @@ import { Article } from './entities/article.entity';
 @Injectable()
 export class ArticlesService {
   constructor(
-    @InjectModel(Category.name) private readonly CategoryModel: Model<Category>,
-    @InjectModel(Comment.name) private readonly CommentModel: Model<Comment>,
+    @InjectModel(ArticleCategory.name)
+    private readonly CategoryModel: Model<ArticleCategory>,
+    @InjectModel(ArticleComment.name)
+    private readonly CommentModel: Model<ArticleComment>,
     @InjectModel(Article.name) private readonly ArticleModel: Model<Article>,
   ) {}
 

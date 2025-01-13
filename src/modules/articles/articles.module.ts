@@ -1,12 +1,15 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { Asset, AssetSchema } from '~/assets/entities/asset.entity';
 import {
-  Category,
-  CategorySchema,
-} from '~/categories/entities/category.entity';
-import { Comment, CommentSchema } from '~/comments/entities/comment.entity';
+  ArticleCategory,
+  ArticleCategorySchema,
+} from '~/article-categories/entities/category.entity';
+import {
+  ArticleComment,
+  ArticleCommentSchema,
+} from '~/article-comments/entities/comment.entity';
+import { Asset, AssetSchema } from '~/assets/entities/asset.entity';
 import { User, UserSchema } from '~/users/entities/user.entity';
 
 import { ArticlesController } from './articles.controller';
@@ -25,12 +28,12 @@ import { Article, ArticleSchema } from './entities/article.entity';
         schema: ArticleSchema,
       },
       {
-        name: Comment.name,
-        schema: CommentSchema,
+        name: ArticleComment.name,
+        schema: ArticleCommentSchema,
       },
       {
-        name: Category.name,
-        schema: CategorySchema,
+        name: ArticleCategory.name,
+        schema: ArticleCategorySchema,
       },
       {
         name: Asset.name,

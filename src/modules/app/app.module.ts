@@ -8,16 +8,18 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TelegrafModule } from 'nestjs-telegraf';
 
+import { ChatModule } from '@/events/chat/chat.module';
+import { CategoriesModule } from '~/article-categories/categories.module';
+import { CollectionsModule } from '~/article-collections/collections.module';
+import { CommentsModule } from '~/article-comments/comments.module';
+import { HomeModule } from '~/article-home/home.module';
 import { ArticlesModule } from '~/articles/articles.module';
 import { AssetsModule } from '~/assets/assets.module';
 import { AuthMiddleware } from '~/auth/auth.middleware';
 import { AuthModule } from '~/auth/auth.module';
-import { CategoriesModule } from '~/categories/categories.module';
-import { CollectionsModule } from '~/collections/collections.module';
-import { CommentsModule } from '~/comments/comments.module';
 import { ContactModule } from '~/contact/contact.module';
-import { HomeModule } from '~/home/home.module';
 import { ReportModule } from '~/report/report.module';
+import { ShopCollectionsModule } from '~/shop-collections/collections.module';
 import { SubscribeModule } from '~/subscribe/subscribe.module';
 import { UsersModule } from '~/users/users.module';
 
@@ -45,6 +47,10 @@ import { ValidateHostNameMiddleware } from './host.middleware';
     SubscribeModule,
     ContactModule,
     ReportModule,
+    // shop
+    ShopCollectionsModule,
+    //
+    ChatModule,
   ],
   controllers: [AppController],
   providers: [AppService],

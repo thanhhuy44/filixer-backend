@@ -2,10 +2,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type CommentDocument = HydratedDocument<Comment>;
+export type ArticleCommentDocument = HydratedDocument<ArticleComment>;
 
 @Schema({})
-export class Comment {
+export class ArticleComment {
   @Prop({
     required: true,
     ref: 'Article',
@@ -14,13 +14,13 @@ export class Comment {
 
   @Prop({
     required: false,
-    ref: 'Comment',
+    ref: 'ArticleComment',
   })
   parent: string;
 
   @Prop({
     required: false,
-    ref: 'Comment',
+    ref: 'ArticleComment',
     autopopulate: {
       match: {
         isDeleted: false,
@@ -73,5 +73,6 @@ export class Comment {
   updatedAt: Date;
 }
 
-export const CommentSchema = SchemaFactory.createForClass(Comment);
-CommentSchema.plugin(require('mongoose-autopopulate'));
+export const ArticleCommentSchema =
+  SchemaFactory.createForClass(ArticleComment);
+ArticleCommentSchema.plugin(require('mongoose-autopopulate'));

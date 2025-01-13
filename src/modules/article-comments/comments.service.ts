@@ -8,12 +8,13 @@ import { Article } from '~/articles/entities/article.entity';
 
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
-import { Comment } from './entities/comment.entity';
+import { ArticleComment } from './entities/comment.entity';
 
 @Injectable()
 export class CommentsService {
   constructor(
-    @InjectModel(Comment.name) private readonly CommentModel: Model<Comment>,
+    @InjectModel(ArticleComment.name)
+    private readonly CommentModel: Model<ArticleComment>,
     @InjectModel(Article.name) private readonly ArticleModel: Model<Article>,
   ) {}
   async create(body: CreateCommentDto, createdBy: string) {

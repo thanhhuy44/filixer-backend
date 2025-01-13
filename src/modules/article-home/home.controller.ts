@@ -3,8 +3,8 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { HomeService } from './home.service';
 
-@ApiTags('Home')
-@Controller('home')
+@ApiTags('Article Home')
+@Controller('article/home')
 export class HomeController {
   constructor(private readonly homeService: HomeService) {}
 

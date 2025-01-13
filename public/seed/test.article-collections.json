@@ -1,0 +1,159 @@
+[{
+  "_id": {
+    "$oid": "6744419daabe642796f089b0"
+  },
+  "name": "Top Slider",
+  "slug": "Top-Slider",
+  "description": "top slider",
+  "articles": [
+    "674422d6797a12b24ed245a5"
+  ],
+  "isDeleted": true,
+  "createdAt": {
+    "$date": "2024-11-25T09:21:33.690Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-26T04:12:09.886Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674443169f9abea22f88c083"
+  },
+  "name": "Editor choice",
+  "slug": "Editor-choice",
+  "description": "Editor choice",
+  "articles": [],
+  "isDeleted": true,
+  "createdAt": {
+    "$date": "2024-11-25T09:27:50.205Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-26T04:14:05.983Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67453db57b60ee4da0e95958"
+  },
+  "name": "Recommend 1",
+  "slug": "Recommend-1",
+  "description": "Recommend Recommend Recommend Recommend Recommend Recommend Recommend Recommend Recommend ",
+  "articles": [
+    "674422d6797a12b24ed245a5",
+    "674421ca797a12b24ed2455c",
+    "6744015c1d5d0d509c17d505",
+    "6743f6f41d5d0d509c17d428",
+    "6743f76c1d5d0d509c17d455",
+    "6743f4e11d5d0d509c17d3cb"
+  ],
+  "isDeleted": true,
+  "createdAt": {
+    "$date": "2024-11-26T03:17:09.245Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-26T04:13:46.806Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67454d19d6cc6128c093d12a"
+  },
+  "name": "Recommend",
+  "slug": "recommend",
+  "description": "Welcome to our \"Recommendations\" section, where we share carefully curated suggestions to enhance your lifestyle, productivity, and experiences. From must-read books and binge-worthy shows to travel destinations, gadgets, and more, our goal is to help you discover the best options for your needs and interests. Whether you're seeking inspiration or just looking for something new to try, we've got you covered. Dive in and explore our top picks!",
+  "articles": [
+    "6743f76c1d5d0d509c17d455",
+    "6743f6f41d5d0d509c17d428",
+    "6743f4e11d5d0d509c17d3cb",
+    "6744015c1d5d0d509c17d505",
+    "6743f8ae1d5d0d509c17d4a9"
+  ],
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-26T04:22:49.547Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-26T04:33:25.469Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67454dbcd6cc6128c093d147"
+  },
+  "name": "Trending",
+  "slug": "trending",
+  "description": "Stay ahead of the curve with our \"Trending\" section, where we bring you the latest buzzworthy topics, viral moments, and emerging trends from around the world. Whether it's cutting-edge tech, cultural phenomena, or must-know news, this is your go-to destination for what's hot right now. Join the conversation and keep your finger on the pulse of what's shaping our world today!",
+  "articles": [
+    "674422d6797a12b24ed245a5",
+    "674421ca797a12b24ed2455c",
+    "6743f76c1d5d0d509c17d455",
+    "6743f4e11d5d0d509c17d3cb",
+    "6743f24d1d5d0d509c17d34a"
+  ],
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-26T04:25:32.052Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-26T04:33:16.509Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67454dfbd6cc6128c093d15a"
+  },
+  "name": "Top Hero",
+  "slug": "top-hero",
+  "description": "Celebrate extraordinary individuals and their remarkable achievements in our \"Top Hero\" section. From inspiring leaders and trailblazers to everyday heroes making a difference, we spotlight those who go above and beyond to impact the world positively. Discover their stories, journeys, and the lessons we can all learn from their courage and determination.",
+  "articles": [
+    "674421ca797a12b24ed2455c",
+    "6744015c1d5d0d509c17d505",
+    "6743f8ae1d5d0d509c17d4a9",
+    "6743f76c1d5d0d509c17d455",
+    "6743f6f41d5d0d509c17d428",
+    "6743f4e11d5d0d509c17d3cb",
+    "6743f3a71d5d0d509c17d376",
+    "6743f24d1d5d0d509c17d34a",
+    "6743f16b1d5d0d509c17d311",
+    "674422d6797a12b24ed245a5",
+    "6743ef991d5d0d509c17d28f"
+  ],
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-26T04:26:35.507Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-26T04:33:08.561Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67457c61578221779addf0a6"
+  },
+  "name": "Popular",
+  "slug": "popular",
+  "description": "Dive into our \"Popular\" section, where you’ll find the most-loved and most-talked-about content. From trending articles to evergreen favorites, these are the stories, tips, and insights that have captured the hearts and attention of our readers. Explore what’s making waves and join the crowd!",
+  "articles": [
+    "674422d6797a12b24ed245a5",
+    "6743f24d1d5d0d509c17d34a",
+    "6743f16b1d5d0d509c17d311",
+    "6743f0f31d5d0d509c17d2e5",
+    "6743f3a71d5d0d509c17d376",
+    "6743f4e11d5d0d509c17d3cb"
+  ],
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-26T07:44:33.445Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-26T07:44:33.445Z"
+  },
+  "__v": 0
+}]

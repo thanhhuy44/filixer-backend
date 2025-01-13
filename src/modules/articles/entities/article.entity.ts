@@ -39,7 +39,7 @@ export class Article {
 
   @Prop({
     required: true,
-    ref: 'Category',
+    ref: 'ArticleCategory',
   })
   categories: string[];
 

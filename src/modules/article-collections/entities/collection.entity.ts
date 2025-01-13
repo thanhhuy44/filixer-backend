@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type CategoryDocument = HydratedDocument<Category>;
+export type ArticleCollectionDocument = HydratedDocument<ArticleCollection>;
 
 @Schema({})
-export class Category {
+export class ArticleCollection {
   @Prop({
     required: true,
   })
@@ -17,8 +17,20 @@ export class Category {
 
   @Prop({
     required: false,
+    ref: 'Asset',
+  })
+  thumbnail: string;
+
+  @Prop({
+    required: false,
   })
   description: string;
+
+  @Prop({
+    required: false,
+    ref: 'Article',
+  })
+  articles: string[];
 
   @Prop({
     required: true,
@@ -40,4 +52,5 @@ export class Category {
   updatedAt: Date;
 }
 
-export const CategorySchema = SchemaFactory.createForClass(Category);
+export const ArticleCollectionSchema =
+  SchemaFactory.createForClass(ArticleCollection);

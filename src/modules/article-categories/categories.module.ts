@@ -5,14 +5,17 @@ import { Article, ArticleSchema } from '~/articles/entities/article.entity';
 
 import { CategoriesController } from './categories.controller';
 import { CategoriesService } from './categories.service';
-import { Category, CategorySchema } from './entities/category.entity';
+import {
+  ArticleCategory,
+  ArticleCategorySchema,
+} from './entities/category.entity';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       {
-        name: Category.name,
-        schema: CategorySchema,
+        name: ArticleCategory.name,
+        schema: ArticleCategorySchema,
       },
       {
         name: Article.name,

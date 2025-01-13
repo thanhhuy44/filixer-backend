@@ -3,15 +3,15 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { EArticleStatus } from '@/types/enum';
+import { ArticleCollection } from '~/article-collections/entities/collection.entity';
 import { Article } from '~/articles/entities/article.entity';
-import { Collection } from '~/collections/entities/collection.entity';
 
 @Injectable()
 export class HomeService {
   constructor(
     @InjectModel(Article.name) private readonly ArticleModel: Model<Article>,
-    @InjectModel(Collection.name)
-    private readonly CollectionModel: Model<Collection>,
+    @InjectModel(ArticleCollection.name)
+    private readonly CollectionModel: Model<ArticleCollection>,
   ) {}
 
   async getHome() {

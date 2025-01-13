@@ -13,12 +13,13 @@ import { Article } from '~/articles/entities/article.entity';
 
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
-import { Category } from './entities/category.entity';
+import { ArticleCategory } from './entities/category.entity';
 
 @Injectable()
 export class CategoriesService {
   constructor(
-    @InjectModel(Category.name) private readonly CategoryModel: Model<Category>,
+    @InjectModel(ArticleCategory.name)
+    private readonly CategoryModel: Model<ArticleCategory>,
     @InjectModel(Article.name) private readonly ArticleModel: Model<Article>,
   ) {}
 

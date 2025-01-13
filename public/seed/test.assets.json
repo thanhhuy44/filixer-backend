@@ -1,0 +1,642 @@
+[{
+  "_id": {
+    "$oid": "6743e1001d5d0d509c17d1b7"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/e7490860a96c11ef963d7ddd8a6c8c2a-1732501758504.png",
+  "fieldname": "file",
+  "originalname": "e7490860a96c11ef963d7ddd8a6c8c2a.png",
+  "size": 1302545,
+  "mimetype": "image/png",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T02:29:20.003Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T02:29:20.003Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743ea051d5d0d509c17d1db"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/f6efc5807d3c11eabc4575f8a51a9a6a-1732504069666.jpg",
+  "fieldname": "file",
+  "originalname": "f6efc5807d3c11eabc4575f8a51a9a6a.jpg",
+  "size": 22635,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:07:49.866Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:07:49.866Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743ea3a1d5d0d509c17d1e4"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/f6efc5807d3c11eabc4575f8a51a9a6a-1732504122580.jpg",
+  "fieldname": "file",
+  "originalname": "f6efc5807d3c11eabc4575f8a51a9a6a.jpg",
+  "size": 22635,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:08:42.733Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:08:42.733Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743ea611d5d0d509c17d1f8"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/e7490860a96c11ef963d7ddd8a6c8c2a-1732504161337.png",
+  "fieldname": "file",
+  "originalname": "e7490860a96c11ef963d7ddd8a6c8c2a.png",
+  "size": 1302545,
+  "mimetype": "image/png",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:09:21.807Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:09:21.807Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743ef991d5d0d509c17d28c"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/6b1658300a9711eeb04fa75dfe597e25-1732505496915.jpeg",
+  "fieldname": "file",
+  "originalname": "6b1658300a9711eeb04fa75dfe597e25.jpeg",
+  "size": 74185,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:31:37.171Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:31:37.171Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f0421d5d0d509c17d2af"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/ca821e30377011e8bd4a1ba09d72115a-1732505666258.jpg",
+  "fieldname": "file",
+  "originalname": "ca821e30377011e8bd4a1ba09d72115a.jpg",
+  "size": 15909,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:34:26.474Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:34:26.474Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f0f31d5d0d509c17d2e2"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/ca821e30377011e8bd4a1ba09d72115a-1732505843161.jpg",
+  "fieldname": "file",
+  "originalname": "ca821e30377011e8bd4a1ba09d72115a.jpg",
+  "size": 15909,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:37:23.368Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:37:23.368Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f16b1d5d0d509c17d30e"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/96ad5280da0e11eaab6f9101fe309b77-1732505963108.jpg",
+  "fieldname": "file",
+  "originalname": "96ad5280da0e11eaab6f9101fe309b77.jpg",
+  "size": 301982,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:39:23.422Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:39:23.422Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f24d1d5d0d509c17d347"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/2e43d7d0a7fc11efb8218b3d053efa2d-1732506188861.jpg",
+  "fieldname": "file",
+  "originalname": "2e43d7d0a7fc11efb8218b3d053efa2d.jpg",
+  "size": 12127,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:43:09.073Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:43:09.073Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f3a71d5d0d509c17d373"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/50f6b930a1af11efafc98d9ff19abe46-1732506535523.png",
+  "fieldname": "file",
+  "originalname": "50f6b930a1af11efafc98d9ff19abe46.png",
+  "size": 2129485,
+  "mimetype": "image/png",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:48:55.916Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:48:55.916Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f4e11d5d0d509c17d3c8"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/33be55da-e81b-4dc1-bba3-3df4ce21906c_1274x865-1732506849351.jpg",
+  "fieldname": "file",
+  "originalname": "33be55da-e81b-4dc1-bba3-3df4ce21906c_1274x865.jpg",
+  "size": 172433,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T03:54:09.689Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T03:54:09.689Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f6f41d5d0d509c17d425"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/6b0694809c1e11ef953597b5d2ab8dbb-1732507380462.jpeg",
+  "fieldname": "file",
+  "originalname": "6b0694809c1e11ef953597b5d2ab8dbb.jpeg",
+  "size": 97979,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T04:03:00.684Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T04:03:00.684Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f76c1d5d0d509c17d452"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/bfb2e080342b11e9b66543aafa483cb7-1732507499907.png",
+  "fieldname": "file",
+  "originalname": "bfb2e080342b11e9b66543aafa483cb7.png",
+  "size": 416005,
+  "mimetype": "image/png",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T04:05:00.478Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T04:05:00.478Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743f8ae1d5d0d509c17d4a6"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/450113c02e5011e8a637e32082c71af5-1732507821810.jpg",
+  "fieldname": "file",
+  "originalname": "450113c02e5011e8a637e32082c71af5.jpg",
+  "size": 33283,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T04:10:22.027Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T04:10:22.027Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6744015c1d5d0d509c17d502"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/54caf4c08fc011e89c9fad269f4e946f-1732510044687.jpg",
+  "fieldname": "file",
+  "originalname": "54caf4c08fc011e89c9fad269f4e946f.jpg",
+  "size": 79539,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T04:47:24.886Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T04:47:24.886Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674421ca797a12b24ed24559"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/16079c40164711ed8cdbcd3b4f661480-1732518345735.jpeg",
+  "fieldname": "file",
+  "originalname": "16079c40164711ed8cdbcd3b4f661480.jpeg",
+  "size": 144417,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T07:05:46.215Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T07:05:46.215Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674422d6797a12b24ed245a2"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/33d88b3078d711e68d4cb7ff89c184b7-1732518614522.jpg",
+  "fieldname": "file",
+  "originalname": "33d88b3078d711e68d4cb7ff89c184b7.jpg",
+  "size": 150902,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T07:10:14.774Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T07:10:14.774Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67483a6676bd4e8c615243a0"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/avatar-default-1732786790704.svg",
+  "fieldname": "file",
+  "originalname": "avatar-default.svg",
+  "size": 509,
+  "mimetype": "image/svg+xml",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-28T09:39:50.948Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-28T09:39:50.948Z"
+  },
+  "__v": 0
+},
+{
+  "_id": "67483a6676bd4e8c615243a0",
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/avatar-default-1732786790704.svg",
+  "fieldname": "file",
+  "originalname": "avatar-default.svg",
+  "size": 509,
+  "mimetype": "image/svg+xml",
+  "isDeleted": false,
+  "createdAt": "2024-11-28T09:39:50.948Z",
+  "updatedAt": "2024-11-28T09:39:50.948Z",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674978eba2e44eec56b43fd9"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/Screenshot%20from%202024-11-28%2009-00-02-1732868330380.png",
+  "fieldname": "file",
+  "originalname": "Screenshot from 2024-11-28 09-00-02.png",
+  "size": 46798,
+  "mimetype": "image/png",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-29T08:18:51.007Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-29T08:18:51.007Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67497a65a2e44eec56b43fdb"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/thumb-3-1732868709155.png",
+  "fieldname": "file",
+  "originalname": "thumb-3.png",
+  "size": 69445,
+  "mimetype": "image/png",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-29T08:25:09.560Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-29T08:25:09.560Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6749c5497bde3d44bdf57ee8"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/76a64a10ea8911eabaa22f1f4b3cb421-1732887878857.jpg",
+  "fieldname": "file",
+  "originalname": "76a64a10ea8911eabaa22f1f4b3cb421.jpg",
+  "size": 155173,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-29T13:44:41.737Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-29T13:44:41.737Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6749c5bb7bde3d44bdf57eee"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/b02970209e5311e88143115524944744-1732887993389.jpg",
+  "fieldname": "file",
+  "originalname": "b02970209e5311e88143115524944744.jpg",
+  "size": 239360,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-29T13:46:35.085Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-29T13:46:35.085Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6749c73e7bde3d44bdf57f11"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/57d490d0ad4211efacd64965f9960f6f-1732888381301.jpeg",
+  "fieldname": "file",
+  "originalname": "57d490d0ad4211efacd64965f9960f6f.jpeg",
+  "size": 123675,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-29T13:53:02.730Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-29T13:53:02.730Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674b57853e8de605f0798307"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/76a64a10ea8911eabaa22f1f4b3cb421-1732990850673.jpg",
+  "fieldname": "file",
+  "originalname": "76a64a10ea8911eabaa22f1f4b3cb421.jpg",
+  "size": 155173,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-30T18:20:53.876Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-30T18:20:53.876Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674b57983e8de605f079830c"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/0ca468e0a17f11e8b1109fb8923368d6-1732990870990.jpg",
+  "fieldname": "file",
+  "originalname": "0ca468e0a17f11e8b1109fb8923368d6.jpg",
+  "size": 40678,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-30T18:21:12.005Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-30T18:21:12.005Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675793d81b2a9e1141bc722e"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733792728092.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:05:28.569Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:05:28.569Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675793de1b2a9e1141bc7231"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733792734429.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:05:34.639Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:05:34.639Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6757943996bae0606e481e7b"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733792824803.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:07:05.280Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:07:05.280Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6757946d6dffad5506f49e09"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733792877289.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:07:57.726Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:07:57.726Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6757946f6dffad5506f49e0c"
+  },
+  "url": "https://aiears-bucket.s3.ap-southeast-1.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733792879427.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:07:59.659Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:07:59.659Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6757947acd11e7f5699387cb"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733792890290.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:08:10.711Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:08:10.712Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675794ed8633f71a7eea84aa"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733793004752.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:10:05.247Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:10:05.247Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675794fafd855f4c5776f984"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733793018116.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:10:18.592Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:10:18.592Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675795090dcc123c0d720761"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733793032977.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:10:33.954Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:10:33.954Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67579520e4cac3530e37f215"
+  },
+  "url": "https://aiears-bucket.s3.amazonaws.com/filixer/photo_2023-12-14_16-01-06-1733793056283.jpg",
+  "fieldname": "file",
+  "originalname": "photo_2023-12-14_16-01-06.jpg",
+  "size": 107778,
+  "mimetype": "image/jpeg",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-12-10T01:10:56.687Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:10:56.687Z"
+  },
+  "__v": 0
+}]

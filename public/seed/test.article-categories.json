@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "674002d5b6810237967ac420"
+  },
+  "name": "Phim",
+  "slug": "phim",
+  "description": "phim",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-22T04:04:37.507Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-22T04:04:37.507Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743d0d91d5d0d509c17d134"
+  },
+  "name": "Âm nhạc",
+  "slug": "am-nhac",
+  "description": "Âm nhạc",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T01:20:25.004Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T01:20:25.004Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743d0e51d5d0d509c17d137"
+  },
+  "name": "Sách",
+  "slug": "sach",
+  "description": "Sách",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-25T01:20:37.231Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T01:20:37.231Z"
+  },
+  "__v": 0
+}]

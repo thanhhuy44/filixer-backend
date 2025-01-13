@@ -1,0 +1,74 @@
+[{
+  "_id": {
+    "$oid": "67483a5276bd4e8c6152439d"
+  },
+  "fullName": "Thanh Huy",
+  "avatar": "67579520e4cac3530e37f215",
+  "email": "user@gmail.com",
+  "password": "$2b$10$t79QunHf4O/eo0ejNl6A3emHEnRvKp6mQtNXcMxdETXsOT/OPeI3e",
+  "role": "USER",
+  "createdAt": {
+    "$date": "2024-11-28T09:33:38.011Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-10T01:11:46.355Z"
+  },
+  "__v": 0,
+  "isDeleted": false,
+  "bio": "Một nụ hồng dành cho mắt nice"
+},
+{
+  "_id": {
+    "$oid": "67496cbda2e44eec56b43fd2"
+  },
+  "fullName": "Thanh Huy",
+  "avatar": "67483a6676bd4e8c615243a0",
+  "email": "huy@gmail.com",
+  "password": "$2b$10$a79ABiKcK0up.yL3XHPu2eYYTB8E8fIFz23P/97CfTEmqTOaVpFYK",
+  "role": "USER",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-29T06:35:18.986Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-29T06:35:18.986Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6749ba1689a4a6d2972b4caa"
+  },
+  "fullName": "Thanh Huy",
+  "avatar": "67483a6676bd4e8c615243a0",
+  "email": "thhuy28062001@gmail.com",
+  "password": "$2b$10$/yPf8gRngbqDJF4guc7IPeHDldY9WGOyiZcJrnpr4buvkI/wnU236",
+  "role": "USER",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-29T12:56:49.071Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-29T12:56:49.071Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674b574ed681889edf50c430"
+  },
+  "fullName": "Bùi Trần Thanh Huy",
+  "avatar": "674b57983e8de605f079830c",
+  "email": "thanhhuy@gmail.com",
+  "password": "$2b$10$Dl/uJKHCm3nFTqY/YjKE4uAs2zcF49n0dms1YEqGDVhtq60KP8V8a",
+  "role": "USER",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-11-30T18:19:54.155Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-30T18:19:54.155Z"
+  },
+  "__v": 0,
+  "coverPicture": "674b57853e8de605f0798307"
+}]

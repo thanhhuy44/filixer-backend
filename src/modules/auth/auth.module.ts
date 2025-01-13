@@ -8,7 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 
-import { User, UserSchema } from '@/modules/users/entities/user.entity';
+import { User, UserSchema } from '~/users/entities/user.entity';
 
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
