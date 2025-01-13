@@ -1,2 +1,2 @@
-import '../src/main';
-// import '../dist/src/main.js';
+// import '../src/main';
+import '../dist/src/main.js';
