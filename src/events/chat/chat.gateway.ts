@@ -5,19 +5,19 @@ import {
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
 
-@WebSocketGateway({
+@WebSocketGateway(4800, {
   cors: {
     origin: '*',
   },
+  namespace: 'chat',
 })
 export class ChatGateway {
   @WebSocketServer()
   server: Server;
 
-  @SubscribeMessage('message')
+  @SubscribeMessage('test')
   handleMessage(client: any, payload: any): string {
     console.log('🚀 ~ ChatGateway ~ handleMessage ~ payload:', payload);
-    console.log('🚀 ~ ChatGateway ~ handleMessage ~ client:', client);
     return 'Hello world 1!';
   }
 }
