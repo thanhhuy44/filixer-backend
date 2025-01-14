@@ -26,3 +26,23 @@ export enum ReportTargetType {
   ARTICLE = 'ARTICLE',
   COMMENT = 'COMMENT',
 }
+
+export enum ESizeType {
+  NUMBER = 'number',
+  LETTER = 'letter',
+}
+
+export enum EOrderStatus {
+  PROCESSING = 'PROCESSING',
+  APPROVED = 'APPROVED',
+  SHIPPING = 'SHIPPING',
+  DELIVERING = 'DELIVERING',
+  CANCEL = 'CANCEL',
+  SUCCESS = 'SUCCESS',
+}
+
+export enum EPaymentMethod {
+  COD = 'COD',
+  BANKING = 'BANKING',
+  MOMO = 'MOMO',
+}

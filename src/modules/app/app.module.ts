@@ -17,9 +17,14 @@ import { ArticlesModule } from '~/articles/articles.module';
 import { AssetsModule } from '~/assets/assets.module';
 import { AuthMiddleware } from '~/auth/auth.middleware';
 import { AuthModule } from '~/auth/auth.module';
+import { ColorsModule } from '~/colors/colors.module';
 import { ContactModule } from '~/contact/contact.module';
+import { InventoriesModule } from '~/inventories/inventories.module';
+import { OrdersModule } from '~/orders/orders.module';
+import { ProductsModule } from '~/products/products.module';
 import { ReportModule } from '~/report/report.module';
 import { ShopCollectionsModule } from '~/shop-collections/collections.module';
+import { SizesModule } from '~/sizes/sizes.module';
 import { SubscribeModule } from '~/subscribe/subscribe.module';
 import { UsersModule } from '~/users/users.module';
 
@@ -49,6 +54,11 @@ import { ValidateHostNameMiddleware } from './host.middleware';
     ReportModule,
     // shop
     ShopCollectionsModule,
+    ColorsModule,
+    SizesModule,
+    ProductsModule,
+    InventoriesModule,
+    OrdersModule,
     //
     ChatModule,
   ],
