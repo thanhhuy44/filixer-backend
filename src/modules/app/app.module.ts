@@ -15,6 +15,7 @@ import { CommentsModule } from '~/article-comments/comments.module';
 import { HomeModule } from '~/article-home/home.module';
 import { ArticlesModule } from '~/articles/articles.module';
 import { AssetsModule } from '~/assets/assets.module';
+import { AssistantsModule } from '~/assistants/assistants.module';
 import { AuthMiddleware } from '~/auth/auth.middleware';
 import { AuthModule } from '~/auth/auth.module';
 import { ColorsModule } from '~/colors/colors.module';
@@ -61,6 +62,9 @@ import { ValidateHostNameMiddleware } from './host.middleware';
     OrdersModule,
     //
     ChatModule,
+
+    //
+    AssistantsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

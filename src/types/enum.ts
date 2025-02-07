@@ -46,3 +46,8 @@ export enum EPaymentMethod {
   BANKING = 'BANKING',
   MOMO = 'MOMO',
 }
+
+export enum EAssistantRole {
+  USER = 'user',
+  ASSISTANT = 'assistant',
+}

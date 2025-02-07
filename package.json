@@ -37,6 +37,7 @@
     "mongoose-autopopulate": "^1.1.0",
     "nestjs-telegraf": "^2.8.1",
     "node-telegram-bot-api": "^0.66.0",
+    "openai": "^4.83.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "slugify": "^1.6.6",
