@@ -21,9 +21,9 @@ export class AssistantsController {
   }
 
   @Get('rooms')
-  async getRooms(@Req() req: Request) {
-    const data = await this.assistantsService.getRooms(req.user._id);
-    return { data };
+  async getRooms(@Req() req: Request, @Query() query: PaginationDto) {
+    const data = await this.assistantsService.getRooms(req.user._id, query);
+    return data;
   }
 
   @Get('rooms/:id/messages')
@@ -32,11 +32,10 @@ export class AssistantsController {
     @Param() params: MongoIdDto,
     @Query() query: PaginationDto,
   ) {
-    const data = await this.assistantsService.getMessages(
+    return await this.assistantsService.getMessages(
       params.id,
       req.user._id,
       query,
     );
-    return { data };
   }
 }

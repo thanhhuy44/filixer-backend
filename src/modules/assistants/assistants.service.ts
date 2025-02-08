@@ -115,13 +115,37 @@ export class AssistantsService {
     }
   }
 
-  async getRooms(user: string) {
+  async getRooms(user: string, query: PaginationDto) {
+    const {
+      page = 1,
+      limit = 10,
+      sortBy = 'updatedAt',
+      sortDirection = 'desc',
+    } = query;
+
     try {
       const rooms = await this.AssistantRoomModel.find({
         user,
         isDeleted: false,
+      })
+        .sort([[sortBy, sortDirection]])
+        .skip((page - 1) * limit)
+        .limit(limit);
+
+      const total = await this.AssistantRoomModel.countDocuments({
+        user,
+        isDeleted: false,
       });
-      return rooms;
+
+      return {
+        data: rooms,
+        pagination: {
+          page,
+          limit,
+          total,
+          totalPages: Math.ceil(total / limit),
+        },
+      };
     } catch (error) {
       console.error('🚀 ~ AssistantsService ~ getRooms ~ error:', error);
       throw new InternalServerErrorException();

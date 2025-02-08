@@ -41,14 +41,14 @@ export class AuthController {
 
   @Get('/refresh-token')
   async token(@Req() req: Request, @Res() res: Response) {
-    const { token } = await this.authService.token(req.userRefresh);
+    const { accessToken } = await this.authService.token(req.userRefresh);
     const { refreshToken } = await this.authService.refreshToken(
       req.userRefresh,
     );
     return res.status(HttpStatus.OK).json({
       statusCode: HttpStatus.OK,
       message: 'OK!',
-      data: { token, refreshToken },
+      data: { accessToken, refreshToken },
     });
   }
 

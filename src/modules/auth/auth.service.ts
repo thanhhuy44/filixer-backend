@@ -40,7 +40,7 @@ export class AuthService {
     if (!isMatchPassword) {
       throw new BadRequestException('Password not match!');
     }
-    const { token } = await this.token({
+    const { accessToken } = await this.token({
       _id: user._id.toString(),
       role: user.role,
     });
@@ -51,18 +51,18 @@ export class AuthService {
 
     return {
       info: user,
-      token,
+      accessToken,
       refreshToken,
     };
   }
 
   async token({ _id, role }: { _id: string; role: string }) {
     try {
-      const token = jwt.sign({ _id, role }, process.env.JWT_SECRET_KEY, {
-        expiresIn: '1h',
+      const accessToken = jwt.sign({ _id, role }, process.env.JWT_SECRET_KEY, {
+        expiresIn: '2 days',
       });
 
-      return { token };
+      return { accessToken };
     } catch (error) {
       console.error(error);
       throw new BadRequestException(error.message);
@@ -75,7 +75,7 @@ export class AuthService {
         { _id, role },
         process.env.JWT_REFRESH_SECRET_KEY,
         {
-          expiresIn: '2 days',
+          expiresIn: '30 days',
         },
       );
       return { refreshToken };
