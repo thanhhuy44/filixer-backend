@@ -57,8 +57,8 @@ export class AssistantsService {
     return completion;
   }
 
-  async create(body: AskDto, user: string) {
-    const { room, content } = body;
+  async sendMessage(body: AskDto, user: string) {
+    const { room, content, role = EAssistantRole.USER } = body;
     let existRoom: Document;
     if (!room) {
       existRoom = await this.AssistantRoomModel.create({
@@ -74,16 +74,21 @@ export class AssistantsService {
         throw new NotFoundException();
       }
     }
-    await this.AssistantMessageModel.create({
+    const newMessage = await this.AssistantMessageModel.create({
       content,
       room: existRoom._id,
-      role: EAssistantRole.USER,
+      role,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     });
+
+    return newMessage;
+  }
+
+  async stream(room: string) {
     const messages = await this.AssistantMessageModel.find({
       isDeleted: false,
-      room: existRoom._id,
+      room,
     });
 
     try {
@@ -96,19 +101,10 @@ export class AssistantsService {
             }) as any,
         ),
         model: 'deepseek/deepseek-r1:free',
+        stream: true,
       });
-      console.log('🚀 ~ AssistantsService ~ create ~ completion:', completion);
-      const newMessage = await this.AssistantMessageModel.create({
-        room: existRoom._id,
-        role: EAssistantRole.ASSISTANT,
-        content: completion.choices[0].message.content,
-        createdAt: Date.now(),
-        updatedAt: Date.now(),
-      });
-      await this.AssistantRoomModel.findByIdAndUpdate(existRoom._id, {
-        updatedAt: Date.now(),
-      });
-      return newMessage;
+
+      return completion;
     } catch (error) {
       console.error('🚀 ~ AssistantsService ~ create ~ error:', error);
       throw new InternalServerErrorException();

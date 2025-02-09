@@ -8,6 +8,12 @@ export class AskDto {
   @ApiProperty({})
   room: string;
 
+  @IsString()
+  @IsMongoId()
+  @IsOptional()
+  @ApiProperty({})
+  role?: string;
+
   @IsNotEmpty()
   @IsString()
   @ApiProperty({})

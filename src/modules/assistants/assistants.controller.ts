@@ -1,9 +1,20 @@
-import { Body, Controller, Get, Param, Post, Query, Req } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  Req,
+  Res,
+} from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Request } from 'express';
+import { Request, Response } from 'express';
+import { Readable } from 'stream';
 
 import { MongoIdDto } from '@/common/dto/mongo-params.dto';
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { EAssistantRole } from '@/types/enum';
 
 import { AssistantsService } from './assistants.service';
 import { AskDto } from './dto/ask.dto';
@@ -16,8 +27,39 @@ export class AssistantsController {
 
   @Post()
   async create(@Body() body: AskDto, @Req() req: Request) {
-    const data = await this.assistantsService.create(body, req.user._id);
+    const data = await this.assistantsService.sendMessage(body, req.user._id);
     return { data };
+  }
+
+  @Get('rooms/:id/stream')
+  async streamChat(
+    @Param() param: MongoIdDto,
+    @Res() res: Response,
+    @Req() req: Request,
+  ) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Transfer-Encoding', 'chunked');
+
+    const stream = new Readable({
+      read() {},
+    });
+
+    stream.pipe(res);
+
+    const response = await this.assistantsService.stream(param.id);
+    let content = '';
+    for await (const chunk of response) {
+      content = content + chunk.choices[0]?.delta?.content || '';
+      stream.push(chunk.choices[0]?.delta?.content || '');
+    }
+
+    stream.push(null); // Close stream
+    const finalRes = await this.assistantsService.sendMessage(
+      { room: param.id, content, role: EAssistantRole.ASSISTANT },
+      req.user._id,
+    );
+
+    return { data: finalRes };
   }
 
   @Get('rooms')
