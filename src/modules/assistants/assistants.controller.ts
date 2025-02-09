@@ -52,13 +52,11 @@ export class AssistantsController {
       content = content + chunk.choices[0]?.delta?.content || '';
       stream.push(chunk.choices[0]?.delta?.content || '');
     }
-
-    stream.push(null); // Close stream
     const finalRes = await this.assistantsService.sendMessage(
       { room: param.id, content, role: EAssistantRole.ASSISTANT },
       req.user._id,
     );
-
+    stream.push(null); // Close stream
     return { data: finalRes };
   }
 

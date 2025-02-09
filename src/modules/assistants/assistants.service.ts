@@ -82,6 +82,10 @@ export class AssistantsService {
       updatedAt: Date.now(),
     });
 
+    await this.AssistantRoomModel.findByIdAndUpdate(existRoom._id, {
+      updatedAt: Date.now(),
+    });
+
     return newMessage;
   }
 
