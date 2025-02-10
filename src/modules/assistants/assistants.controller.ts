@@ -52,12 +52,13 @@ export class AssistantsController {
       content = content + chunk.choices[0]?.delta?.content || '';
       stream.push(chunk.choices[0]?.delta?.content || '');
     }
-    const finalRes = await this.assistantsService.sendMessage(
-      { room: param.id, content, role: EAssistantRole.ASSISTANT },
-      req.user._id,
-    );
+    if (content) {
+      await this.assistantsService.sendMessage(
+        { room: param.id, content, role: EAssistantRole.ASSISTANT },
+        req.user._id,
+      );
+    }
     stream.push(null); // Close stream
-    return { data: finalRes };
   }
 
   @Get('rooms')
