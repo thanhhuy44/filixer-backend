@@ -58,7 +58,7 @@ export class AssistantsController {
         req.user._id,
       );
     }
-    stream.push(null); // Close stream chunk
+    stream.push(null); // Close stream
   }
 
   @Get('rooms')
