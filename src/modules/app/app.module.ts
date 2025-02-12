@@ -21,6 +21,7 @@ import { AuthModule } from '~/auth/auth.module';
 import { ColorsModule } from '~/colors/colors.module';
 import { ContactModule } from '~/contact/contact.module';
 import { InventoriesModule } from '~/inventories/inventories.module';
+import { MailerModule } from '~/mailers/mailers.module';
 import { OrdersModule } from '~/orders/orders.module';
 import { ProductsModule } from '~/products/products.module';
 import { ReportModule } from '~/report/report.module';
@@ -36,12 +37,14 @@ import { ValidateHostNameMiddleware } from './host.middleware';
   imports: [
     ConfigModule.forRoot({
       envFilePath: ['.env.local', '.env'],
+      isGlobal: true,
     }),
     TelegrafModule.forRoot({
       token: process.env.BOT_CONTACT_TOKEN,
       launchOptions: false,
     }),
     MongooseModule.forRoot(process.env.DATABASE_URL, {}),
+    //
     HomeModule,
     UsersModule,
     AuthModule,
@@ -65,6 +68,9 @@ import { ValidateHostNameMiddleware } from './host.middleware';
 
     //
     AssistantsModule,
+
+    // Mailer
+    MailerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
