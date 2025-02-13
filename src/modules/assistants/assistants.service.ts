@@ -24,7 +24,7 @@ export class AssistantsService {
 
   private readonly genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-  private model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  private model = this.genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
   constructor(
     @InjectModel(AssistantRoom.name)
@@ -134,14 +134,24 @@ export class AssistantsService {
     });
     try {
       const chat = this.model.startChat({
-        history: messages.map((message) => ({
-          role: message.role === 'user' ? message.role : 'model',
-          parts: [
-            {
-              text: message.content,
-            },
-          ],
-        })),
+        history: [
+          {
+            role: 'user',
+            parts: [
+              {
+                text: "Importtant! Let's chat as like you are an AI of Filixer developed by Thanh Huy!",
+              },
+            ],
+          },
+          ...messages.map((message) => ({
+            role: message.role === 'user' ? message.role : 'model',
+            parts: [
+              {
+                text: message.content,
+              },
+            ],
+          })),
+        ],
       });
       const result = await chat.sendMessageStream(
         messages[messages.length - 1].content,
@@ -188,6 +198,14 @@ export class AssistantsService {
       console.error('🚀 ~ AssistantsService ~ getRooms ~ error:', error);
       throw new InternalServerErrorException();
     }
+  }
+
+  async getRoomById(id: string) {
+    const room = await this.AssistantRoomModel.findById(id);
+    if (!room) {
+      throw new NotFoundException();
+    }
+    return room;
   }
 
   async getMessages(room: string, user: string, query: PaginationDto) {

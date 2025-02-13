@@ -97,6 +97,11 @@ export class AssistantsController {
     const data = await this.assistantsService.getRooms(req.user._id, query);
     return data;
   }
+  @Get('rooms/:id')
+  async getRoom(@Param() param: MongoIdDto) {
+    const data = await this.assistantsService.getRoomById(param.id);
+    return { data };
+  }
 
   @Get('rooms/:id/messages')
   async getMessages(
