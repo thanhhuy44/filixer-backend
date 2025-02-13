@@ -1,3 +1,4 @@
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import {
   Injectable,
   InternalServerErrorException,
@@ -20,6 +21,10 @@ export class AssistantsService {
     baseURL: 'https://openrouter.ai/api/v1',
     apiKey: process.env.DEEPSEEK_API_KEY,
   });
+
+  private readonly genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+  private model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   constructor(
     @InjectModel(AssistantRoom.name)
@@ -97,18 +102,51 @@ export class AssistantsService {
 
     try {
       const completion = await this.openai.chat.completions.create({
-        messages: messages.map(
-          (mess) =>
-            ({
-              role: mess.role,
-              content: mess.content,
-            }) as any,
-        ),
+        messages: [
+          {
+            role: 'system',
+            content:
+              "Importtant! Let's chat as like you are an AI of Filixer developed by Thanh Huy!",
+          },
+          ...messages.map(
+            (mess) =>
+              ({
+                role: mess.role,
+                content: mess.content,
+              }) as any,
+          ),
+        ],
         model: 'deepseek/deepseek-r1:free',
         stream: true,
       });
 
       return completion;
+    } catch (error) {
+      console.error('🚀 ~ AssistantsService ~ create ~ error:', error);
+      throw new InternalServerErrorException();
+    }
+  }
+
+  async geminiStream(room: string) {
+    const messages = await this.AssistantMessageModel.find({
+      isDeleted: false,
+      room,
+    });
+    try {
+      const chat = this.model.startChat({
+        history: messages.map((message) => ({
+          role: message.role === 'user' ? message.role : 'model',
+          parts: [
+            {
+              text: message.content,
+            },
+          ],
+        })),
+      });
+      const result = await chat.sendMessageStream(
+        messages[messages.length - 1].content,
+      );
+      return result;
     } catch (error) {
       console.error('🚀 ~ AssistantsService ~ create ~ error:', error);
       throw new InternalServerErrorException();

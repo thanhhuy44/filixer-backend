@@ -61,6 +61,37 @@ export class AssistantsController {
     stream.push(null); // Close stream
   }
 
+  @Get('rooms/:id/gemini-stream')
+  async geminiStreamChat(
+    @Param() param: MongoIdDto,
+    @Res() res: Response,
+    @Req() req: Request,
+  ) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Transfer-Encoding', 'chunked');
+
+    const stream = new Readable({
+      read() {},
+    });
+
+    stream.pipe(res);
+
+    const response = await this.assistantsService.geminiStream(param.id);
+    console.log('🚀 ~ AssistantsController ~ response:', response);
+    let content = '';
+    for await (const chunk of response.stream) {
+      content = content + chunk.text() || '';
+      stream.push(chunk.text() || '');
+    }
+    if (content) {
+      await this.assistantsService.sendMessage(
+        { room: param.id, content, role: EAssistantRole.ASSISTANT },
+        req.user._id,
+      );
+    }
+    stream.push(null); // Close stream
+  }
+
   @Get('rooms')
   async getRooms(@Req() req: Request, @Query() query: PaginationDto) {
     const data = await this.assistantsService.getRooms(req.user._id, query);
