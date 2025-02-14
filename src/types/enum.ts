@@ -51,3 +51,15 @@ export enum EAssistantRole {
   USER = 'user',
   ASSISTANT = 'assistant',
 }
+
+export enum EChatRoomType {
+  PERSONAL = 'personal',
+  GROUP = 'group',
+}
+
+export enum EChatMessageType {
+  TEXT = 'text',
+  IMAGE = 'image',
+  FILE = 'file',
+  LINK = 'link',
+}

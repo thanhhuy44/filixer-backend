@@ -8,7 +8,6 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TelegrafModule } from 'nestjs-telegraf';
 
-import { ChatModule } from '@/events/chat/chat.module';
 import { CategoriesModule } from '~/article-categories/categories.module';
 import { CollectionsModule } from '~/article-collections/collections.module';
 import { CommentsModule } from '~/article-comments/comments.module';
@@ -63,8 +62,6 @@ import { ValidateHostNameMiddleware } from './host.middleware';
     ProductsModule,
     InventoriesModule,
     OrdersModule,
-    //
-    ChatModule,
 
     //
     AssistantsModule,
