@@ -2,7 +2,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-import { EChatMessageType } from '@/types/enum';
+import { EChatMessageRole, EChatMessageType } from '@/types/enum';
 
 export type ChatMessageDocument = HydratedDocument<ChatMessage>;
 
@@ -48,10 +48,23 @@ export class ChatMessage {
   reactions: Reaction[];
 
   @Prop({
-    required: true,
+    required: false,
     ref: 'User',
   })
   sender: string;
+
+  @Prop({
+    required: false,
+    ref: 'User',
+  })
+  seenBy: string[];
+
+  @Prop({
+    required: true,
+    enum: EChatMessageRole,
+    default: EChatMessageRole.USER,
+  })
+  role: string;
 
   @Prop({
     required: true,
@@ -62,9 +75,9 @@ export class ChatMessage {
 
   @Prop({
     required: true,
-    default: false,
+    ref: 'User',
   })
-  isDeleted: boolean;
+  deletedBy: string[];
 
   @Prop({
     required: true,

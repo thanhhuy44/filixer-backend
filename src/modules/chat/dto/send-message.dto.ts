@@ -34,13 +34,17 @@ export class SendMessageDto {
 
   @IsArray()
   @IsOptional()
-  @IsMongoId({ each: true })
+  @IsMongoId()
   @ApiProperty({})
   images: string;
 
-  @IsArray()
   @IsOptional()
-  @IsMongoId({ each: true })
+  @IsMongoId()
   @ApiProperty({})
-  rooms: string;
+  replied: string;
+
+  @IsOptional()
+  @IsMongoId()
+  @ApiProperty({})
+  forwarded: string;
 }

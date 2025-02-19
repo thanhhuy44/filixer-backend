@@ -68,6 +68,18 @@ export class User {
     required: true,
     default: false,
   })
+  isOnline: boolean;
+
+  @Prop({
+    required: true,
+    default: Date.now(),
+  })
+  lastOnline: Date;
+
+  @Prop({
+    required: true,
+    default: false,
+  })
   isDeleted: boolean;
 
   @Prop({

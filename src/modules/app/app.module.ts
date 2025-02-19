@@ -17,6 +17,7 @@ import { AssetsModule } from '~/assets/assets.module';
 import { AssistantsModule } from '~/assistants/assistants.module';
 import { AuthMiddleware } from '~/auth/auth.middleware';
 import { AuthModule } from '~/auth/auth.module';
+import { ChatModule } from '~/chat/chat.module';
 import { ColorsModule } from '~/colors/colors.module';
 import { ContactModule } from '~/contact/contact.module';
 import { InventoriesModule } from '~/inventories/inventories.module';
@@ -65,6 +66,9 @@ import { ValidateHostNameMiddleware } from './host.middleware';
 
     //
     AssistantsModule,
+
+    // Chat
+    ChatModule,
 
     // Mailer
     MailerModule,

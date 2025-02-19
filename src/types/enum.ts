@@ -63,3 +63,8 @@ export enum EChatMessageType {
   FILE = 'file',
   LINK = 'link',
 }
+
+export enum EChatMessageRole {
+  USER = 'user',
+  SYSTEM = 'system',
+}

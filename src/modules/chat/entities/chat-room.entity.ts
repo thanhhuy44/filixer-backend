@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
@@ -9,6 +10,7 @@ class RoomMember {
   @Prop({
     required: true,
     ref: 'User',
+    autopopulate: true,
   })
   user: string;
 
@@ -27,6 +29,11 @@ export class ChatRoom {
   members: RoomMember[];
 
   @Prop({
+    required: false,
+  })
+  name: string;
+
+  @Prop({
     required: true,
     enum: EChatRoomType,
   })
@@ -34,9 +41,15 @@ export class ChatRoom {
 
   @Prop({
     required: true,
-    default: false,
+    ref: 'User',
   })
-  isDeleted: boolean;
+  deletedBy: string[];
+
+  @Prop({
+    required: true,
+    ref: 'User',
+  })
+  createdBy: string;
 
   @Prop({
     required: true,
@@ -52,3 +65,4 @@ export class ChatRoom {
 }
 
 export const ChatRoomSchema = SchemaFactory.createForClass(ChatRoom);
+ChatRoomSchema.plugin(require('mongoose-autopopulate'));
