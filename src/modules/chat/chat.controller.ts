@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Query,
   Req,
@@ -16,6 +17,7 @@ import { PaginationDto } from '@/common/dto/pagination.dto';
 
 import { ChatService } from './chat.service';
 import { CreateRoomDto } from './dto/create-room.dto';
+import { ReactionMessageDto } from './dto/reaction-message';
 import { SendMessageDto } from './dto/send-message.dto';
 import { UpdateStatusDto } from './dto/update-status.dto';
 
@@ -52,6 +54,26 @@ export class ChatController {
   @Post('messages/send')
   async sendMessage(@Body() body: SendMessageDto, @Req() req: Request) {
     const data = await this.chatService.sendMessage(body, req.user._id);
+    return { data };
+  }
+
+  @Patch('messages/:id/read')
+  async readMessage(@Param() param: MongoIdDto, @Req() req: Request) {
+    const data = await this.chatService.readMessage(param.id, req.user._id);
+    return { data };
+  }
+
+  @Patch('messages/:id/reaction')
+  async reactionMessage(
+    @Param() param: MongoIdDto,
+    @Body() body: ReactionMessageDto,
+    @Req() req: Request,
+  ) {
+    const data = await this.chatService.reactionMessage(
+      param.id,
+      body.emoji,
+      req.user._id,
+    );
     return { data };
   }
 }

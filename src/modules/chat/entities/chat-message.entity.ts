@@ -7,7 +7,7 @@ import { EChatMessageRole, EChatMessageType } from '@/types/enum';
 export type ChatMessageDocument = HydratedDocument<ChatMessage>;
 
 class Reaction {
-  @Prop({ ref: 'User', required: true })
+  @Prop({ ref: 'User', required: true, autopopulate: true })
   user: string; // User who reacted
 
   @Prop({ required: true })
@@ -50,6 +50,7 @@ export class ChatMessage {
   @Prop({
     required: false,
     ref: 'User',
+    autopopulate: true,
   })
   sender: string;
 

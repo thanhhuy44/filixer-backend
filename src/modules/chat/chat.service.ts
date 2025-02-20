@@ -109,14 +109,14 @@ export class ChatService {
       },
       {
         $lookup: {
-          from: 'ChatMessage', // Collection name of messages
+          from: 'chatmessages', // Collection name of messages
           let: { roomId: '$_id' },
           pipeline: [
             {
               $match: {
                 $expr: {
                   $and: [
-                    { $eq: ['$room', '$$roomId'] }, // Match messages in the room
+                    { $eq: [{ $toObjectId: '$room' }, '$$roomId'] }, // Match messages in the room
                     { $not: { $in: [user, '$seenBy'] } }, // Messages not seen by the user
                   ],
                 },
@@ -132,12 +132,16 @@ export class ChatService {
       {
         $addFields: {
           unreadMessagesCount: {
-            $cond: {
-              if: { $gt: [{ $size: '$unreadMessages' }, 0] }, // If there are unread messages
-              then: { $arrayElemAt: ['$unreadMessages.count', 0] },
-              else: 0, // Default to 0 if no unread messages
-            },
+            $ifNull: [
+              { $arrayElemAt: ['$unreadMessages.unreadMessagesCount', 0] },
+              0, // Default to 0 if no unread messages
+            ],
           },
+        },
+      },
+      {
+        $project: {
+          unreadMessages: 0, // Remove the array
         },
       },
       {
@@ -226,5 +230,61 @@ export class ChatService {
       console.error('🚀 ~ ChatService ~ sendMessage ~ error:', error);
       throw new InternalServerErrorException();
     }
+  }
+
+  async readMessage(id: string, user: string) {
+    const updatedMessage = await this.ChatMessageModel.findOneAndUpdate(
+      {
+        _id: id,
+        seenBy: {
+          $ne: user,
+        },
+        deletedBy: {
+          $ne: user,
+        },
+      },
+      {
+        $addToSet: {
+          seenBy: user,
+        },
+        updatedAt: Date.now(),
+      },
+      {
+        new: true,
+      },
+    );
+
+    if (!updatedMessage) {
+      throw new NotFoundException();
+    }
+
+    return updatedMessage;
+  }
+
+  async reactionMessage(id: string, emoji: string, user: string) {
+    const updatedMessage = await this.ChatMessageModel.findOneAndUpdate(
+      {
+        _id: id,
+        seenBy: {
+          $ne: user,
+        },
+        deletedBy: {
+          $ne: user,
+        },
+      },
+      {
+        $push: {
+          reactions: {
+            user,
+            emoji,
+          },
+        },
+      },
+      { new: true },
+    );
+    if (!updatedMessage) {
+      throw new NotFoundException();
+    }
+    return updatedMessage;
   }
 }
