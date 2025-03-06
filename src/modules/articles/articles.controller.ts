@@ -86,6 +86,7 @@ export class ArticlesController {
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    return this.articlesService.remove(id);
+    const data = await this.articlesService.remove(id);
+    return { data };
   }
 }

@@ -11,6 +11,7 @@ import { PaginationDto } from '@/common/dto/pagination.dto';
 import { EArticleStatus, ESortDirection } from '@/types/enum';
 import { convertToSlug } from '@/utils/helpers';
 import { ArticleCategory } from '~/article-categories/entities/category.entity';
+import { ArticleCollection } from '~/article-collections/entities/collection.entity';
 import { ArticleComment } from '~/article-comments/entities/comment.entity';
 
 import { CreateArticleDto } from './dto/create-article.dto';
@@ -26,6 +27,8 @@ export class ArticlesService {
     @InjectModel(ArticleComment.name)
     private readonly CommentModel: Model<ArticleComment>,
     @InjectModel(Article.name) private readonly ArticleModel: Model<Article>,
+    @InjectModel('ArticleCollection')
+    private readonly ArticleCollectionModel: Model<ArticleCollection>,
   ) {}
 
   async create(body: CreateArticleDto, author: string) {
@@ -162,11 +165,19 @@ export class ArticlesService {
         isDeleted: true,
         updatedAt: Date.now(),
       },
+      {
+        new: true,
+      },
     );
     if (!removedArticle) {
       throw new NotFoundException();
     }
-    return removedArticle._id;
+    const removedId = removedArticle._id.toString();
+    await this.ArticleCollectionModel.updateMany(
+      { articles: removedId },
+      { $pull: { articles: removedId } },
+    );
+    return removedId;
   }
 
   async search(query: SearchDto) {

@@ -6,6 +6,10 @@ import {
   ArticleCategorySchema,
 } from '~/article-categories/entities/category.entity';
 import {
+  ArticleCollection,
+  ArticleCollectionSchema,
+} from '~/article-collections/entities/collection.entity';
+import {
   ArticleComment,
   ArticleCommentSchema,
 } from '~/article-comments/entities/comment.entity';
@@ -34,6 +38,10 @@ import { Article, ArticleSchema } from './entities/article.entity';
       {
         name: ArticleCategory.name,
         schema: ArticleCategorySchema,
+      },
+      {
+        name: ArticleCollection.name,
+        schema: ArticleCollectionSchema,
       },
       {
         name: Asset.name,
