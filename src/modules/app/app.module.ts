@@ -42,7 +42,9 @@ import { ValidateHostNameMiddleware } from './host.middleware';
       token: process.env.BOT_CONTACT_TOKEN,
       launchOptions: false,
     }),
-    MongooseModule.forRoot(process.env.DATABASE_URL, {}),
+    MongooseModule.forRoot(process.env.DATABASE_URL, {
+      allowPartialTrustChain: true,
+    }),
     //
     HomeModule,
     UsersModule,

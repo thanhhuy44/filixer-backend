@@ -1,0 +1,35 @@
+version: '3.8'
+
+networks:
+  filixer-network:
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    env_file:
+      - .env.local
+    networks:
+      - filixer-network
+    volumes:
+      - mongo-data:/data/db
+
+  app:
+    build: .
+    container_name: filixer-app
+    restart: always
+    depends_on:
+      - mongodb
+    ports:
+      - "3030:3030"
+    env_file:
+      - .env.local
+    networks:
+      - filixer-network
+
+volumes:
+  mongo-data:
+  mongo-config:
+
