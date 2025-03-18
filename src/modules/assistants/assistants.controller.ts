@@ -77,7 +77,6 @@ export class AssistantsController {
     stream.pipe(res);
 
     const response = await this.assistantsService.geminiStream(param.id);
-    // console.log('🚀 ~ AssistantsController ~ response:', response);
     let content = '';
     for await (const chunk of response.stream) {
       content = content + chunk.text() || '';

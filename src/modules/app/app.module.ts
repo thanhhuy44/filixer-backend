@@ -96,10 +96,8 @@ export class AppModule implements NestModule {
       '/comments/*',
       '/report',
       '/report/*',
-      {
-        method: RequestMethod.POST,
-        path: '/assets/**',
-      },
+      '/assets',
+      '/assets/*',
       {
         method: RequestMethod.GET,
         path: '/subscribe/**',

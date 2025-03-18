@@ -24,7 +24,6 @@ import { RefreshTokenMiddleware } from './refreshToken.middleware';
           schema.pre<User>('save', async function (next) {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const user = this;
-            console.log('🚀 ~ user:', user);
             if (user.password) {
               const salt = await bcrypt.genSalt();
               const hashPassword = await bcrypt.hash(user.password, salt);

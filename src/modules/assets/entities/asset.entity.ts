@@ -49,6 +49,12 @@ export class Asset {
 
   @Prop({
     required: true,
+    ref: 'User',
+  })
+  createdBy: string;
+
+  @Prop({
+    required: true,
     default: Date.now(),
   })
   createdAt: Date;

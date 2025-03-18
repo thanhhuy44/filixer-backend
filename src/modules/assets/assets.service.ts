@@ -2,10 +2,13 @@ import {
   BadRequestException,
   Injectable,
   InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as AWS from 'aws-sdk';
 import { Model } from 'mongoose';
+
+import { PaginationDto } from '@/common/dto/pagination.dto';
 
 import { Asset } from './entities/asset.entity';
 
@@ -59,7 +62,7 @@ export class AssetsService {
     }
   }
 
-  async uploadOnefile(file: Express.Multer.File) {
+  async uploadOnefile(file: Express.Multer.File, user: string) {
     if (!file) {
       throw new BadRequestException();
     }
@@ -70,13 +73,14 @@ export class AssetsService {
     const asset = await this.AssetModel.create({
       ...file,
       url: uploadFile,
+      createdBy: user,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     });
     return asset;
   }
 
-  async uploadMultipleFiles(files: Array<Express.Multer.File>) {
+  async uploadMultipleFiles(files: Array<Express.Multer.File>, user: string) {
     if (!files.length || files.length > 10) {
       throw new BadRequestException();
     }
@@ -87,6 +91,7 @@ export class AssetsService {
           value.map((url, index) => ({
             url,
             ...files[index],
+            createdBy: user,
             createdAt: Date.now(),
             updatedAt: Date.now(),
           })),
@@ -99,5 +104,71 @@ export class AssetsService {
           'Error when upload multiple file!',
         );
       });
+  }
+
+  async getAll(pagination: PaginationDto) {
+    const {
+      page = 1,
+      limit = 10,
+      sortBy = 'createdAt',
+      sortDirection = 'desc',
+    } = pagination;
+    const assets = await this.AssetModel.find({
+      isDeleted: false,
+    })
+      .sort([[sortBy, sortDirection]])
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .exec();
+    const total = await this.AssetModel.countDocuments({ isDeleted: false });
+    const totalPages = Math.ceil(total / limit);
+    return {
+      data: assets,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages,
+      },
+    };
+  }
+
+  async getMe(pagination: PaginationDto, user: string) {
+    const {
+      page = 1,
+      limit = 10,
+      sortBy = 'createdAt',
+      sortDirection = 'desc',
+    } = pagination;
+    const assets = await this.AssetModel.find({
+      isDeleted: false,
+      createdBy: user,
+    })
+      .sort([[sortBy, sortDirection]])
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .exec();
+    const total = await this.AssetModel.countDocuments({ isDeleted: false });
+    const totalPages = Math.ceil(total / limit);
+    return {
+      data: assets,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages,
+      },
+    };
+  }
+
+  async delete(id: string) {
+    const deletedAsset = await this.AssetModel.findOneAndUpdate({
+      _id: id,
+      isDeleted: false,
+    });
+    if (!deletedAsset) {
+      throw new NotFoundException();
+    }
+    return deletedAsset;
   }
 }

@@ -19,7 +19,6 @@ import { UsersService } from './users.service';
             if (user.password) {
               const salt = await bcrypt.genSalt();
               const hashPassword = await bcrypt.hash(user.password, salt);
-              console.log('🚀 ~ hashPassword:', hashPassword);
               user.password = hashPassword;
               next();
             }
