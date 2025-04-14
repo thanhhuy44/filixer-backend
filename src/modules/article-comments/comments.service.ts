@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Document, Model } from 'mongoose';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { RawQuery } from '@/types';
 import { ESortDirection } from '@/types/enum';
 import { Article } from '~/articles/entities/article.entity';
 
@@ -52,20 +53,21 @@ export class CommentsService {
     return data;
   }
 
-  async findAll(pagination: PaginationDto) {
+  async findAll(pagination: PaginationDto, queries: RawQuery) {
     const {
       page = 1,
       limit = 10,
       sortBy = 'createdAt',
       sortDirection = ESortDirection.DESC,
     } = pagination;
-    const data = await this.CommentModel.find({ isDeleted: false })
+    const filter = { ...queries, isDeleted: false };
+    const data = await this.CommentModel.find(filter)
       .sort([[sortBy, sortDirection]])
       .populate('createdBy')
       .skip((page - 1) * limit)
       .limit(limit)
       .exec();
-    const total = await this.CommentModel.countDocuments({ isDeleted: false });
+    const total = await this.CommentModel.countDocuments(filter);
     const totalPages = Math.ceil(total / limit);
     return { data, pagination: { page, limit, total, totalPages } };
   }

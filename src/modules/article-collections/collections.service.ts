@@ -8,6 +8,7 @@ import { Model } from 'mongoose';
 import slugify from 'slugify';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { RawQuery } from '@/types';
 import { ESortDirection } from '@/types/enum';
 
 import { CreateCollectionDto } from './dto/create-collection.dto';
@@ -38,14 +39,17 @@ export class CollectionsService {
     return newCollection;
   }
 
-  async findAll(pagination: PaginationDto) {
+  async findAll(pagination: PaginationDto, queries: RawQuery) {
     const {
       page = 1,
       limit = 10,
       sortBy = 'createdAt',
       sortDirection = ESortDirection.DESC,
     } = pagination;
-    const data = await this.CollectionModel.find({ isDeleted: false })
+    const data = await this.CollectionModel.find({
+      isDeleted: false,
+      ...queries,
+    })
       .sort([[sortBy, sortDirection]])
       .populate(['thumbnail'])
       .skip((page - 1) * limit)
@@ -53,6 +57,7 @@ export class CollectionsService {
       .exec();
     const total = await this.CollectionModel.countDocuments({
       isDeleted: false,
+      ...queries,
     });
     const totalPages = Math.ceil(total / limit);
     return { data, pagination: { page, limit, total, totalPages } };

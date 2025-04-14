@@ -7,14 +7,15 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { RawQuery } from '@/types';
 import { EOrderStatus } from '@/types/enum';
 import { Inventory } from '~/inventories/entities/inventory.entity';
 import { Product } from '~/products/entities/product.entity';
 
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
-import { Order } from './entities/order.entity';
 import { OrderItem } from './entities/order-item.entity';
+import { Order } from './entities/order.entity';
 
 @Injectable()
 export class OrdersService {
@@ -107,7 +108,7 @@ export class OrdersService {
     );
   }
 
-  async findAll(pagination: PaginationDto) {
+  async findAll(pagination: PaginationDto, queries: RawQuery) {
     const {
       page = 1,
       limit = 10,
@@ -116,11 +117,15 @@ export class OrdersService {
     } = pagination;
     const data = await this.OrderModel.find({
       isDeleted: false,
+      ...queries,
     })
       .sort([[sortBy, sortDirection]])
       .skip((page - 1) * limit)
       .limit(limit);
-    const total = await this.OrderModel.countDocuments({ isDeleted: false });
+    const total = await this.OrderModel.countDocuments({
+      isDeleted: false,
+      ...queries,
+    });
     return {
       data,
       pagination: {

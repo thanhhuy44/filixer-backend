@@ -11,3 +11,7 @@ export type Pagination = {
   total: number;
   totalPages: number;
 };
+
+export type RawQuery = {
+  [key: string]: string | number | boolean;
+};

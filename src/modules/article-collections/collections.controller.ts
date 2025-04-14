@@ -11,6 +11,7 @@ import {
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { buildMongoFilters } from '@/utils/helpers';
 
 import { CollectionsService } from './collections.service';
 import { CreateCollectionDto } from './dto/create-collection.dto';
@@ -29,8 +30,12 @@ export class CollectionsController {
   }
 
   @Get()
-  async findAll(@Query() pagination: PaginationDto) {
-    const data = await this.collectionsService.findAll(pagination);
+  async findAll(
+    @Query() pagination: PaginationDto,
+    @Query() rawQueries: { [key: string]: string },
+  ) {
+    const queries = buildMongoFilters(rawQueries);
+    const data = await this.collectionsService.findAll(pagination, queries);
     return data;
   }
 

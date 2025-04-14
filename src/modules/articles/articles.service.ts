@@ -8,6 +8,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { RawQuery } from '@/types';
 import { EArticleStatus, ESortDirection } from '@/types/enum';
 import { convertToSlug } from '@/utils/helpers';
 import { ArticleCategory } from '~/article-categories/entities/category.entity';
@@ -47,20 +48,23 @@ export class ArticlesService {
     return article;
   }
 
-  async findAll(pagination: PaginationDto) {
+  async findAll(pagination: PaginationDto, query: RawQuery) {
     const {
       page = 1,
       limit = 10,
       sortBy = 'createdAt',
       sortDirection = ESortDirection.DESC,
     } = pagination;
-    const data = await this.ArticleModel.find({ isDeleted: false })
+    const data = await this.ArticleModel.find({ isDeleted: false, ...query })
       .sort([[sortBy, sortDirection]])
       .populate(['categories', 'author', 'thumbnail'])
       .skip((page - 1) * limit)
       .limit(limit)
       .exec();
-    const total = await this.ArticleModel.countDocuments({ isDeleted: false });
+    const total = await this.ArticleModel.countDocuments({
+      isDeleted: false,
+      ...query,
+    });
     const totalPages = Math.ceil(total / limit);
     return { data, pagination: { page, limit, total, totalPages } };
   }

@@ -12,6 +12,7 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { MongoIdDto } from '@/common/dto/mongo-params.dto';
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { buildMongoFilters } from '@/utils/helpers';
 
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -29,8 +30,12 @@ export class CategoriesController {
   }
 
   @Get()
-  async findAll(@Query() pagination: PaginationDto) {
-    return await this.categoriesService.findAll(pagination);
+  async findAll(
+    @Query() pagination: PaginationDto,
+    @Query() rawQuery: { [key: string]: string },
+  ) {
+    const query = buildMongoFilters(rawQuery);
+    return await this.categoriesService.findAll(pagination, query);
   }
 
   @Get('detail/:slug')

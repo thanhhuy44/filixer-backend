@@ -7,6 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { RawQuery } from '@/types';
 import { ESortDirection } from '@/types/enum';
 import { convertToSlug } from '@/utils/helpers';
 import { Article } from '~/articles/entities/article.entity';
@@ -42,20 +43,21 @@ export class CategoriesService {
     return newCategory;
   }
 
-  async findAll(pagination: PaginationDto) {
+  async findAll(pagination: PaginationDto, queries: RawQuery) {
     const {
       page = 1,
       limit = 10,
       sortBy = 'createdAt',
       sortDirection = ESortDirection.DESC,
     } = pagination;
-    const data = await this.CategoryModel.find({ isDeleted: false })
+    const data = await this.CategoryModel.find({ isDeleted: false, ...queries })
       .sort([[sortBy, sortDirection]])
       .skip((page - 1) * limit)
       .limit(limit)
       .exec();
     const total = await this.CategoryModel.countDocuments({
       isDeleted: false,
+      ...queries,
     });
     return {
       data,

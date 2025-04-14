@@ -14,6 +14,7 @@ import { Request } from 'express';
 
 import { MongoIdDto } from '@/common/dto/mongo-params.dto';
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { buildMongoFilters } from '@/utils/helpers';
 
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
@@ -34,8 +35,12 @@ export class ArticlesController {
   }
 
   @Get()
-  async findAll(@Query() pagination: PaginationDto) {
-    const data = this.articlesService.findAll(pagination);
+  async findAll(
+    @Query() pagination: PaginationDto,
+    @Query() rawQueries: { [key: string]: string },
+  ) {
+    const queries = buildMongoFilters(rawQueries);
+    const data = this.articlesService.findAll(pagination, queries);
     return data;
   }
 

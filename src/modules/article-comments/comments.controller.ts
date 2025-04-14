@@ -13,6 +13,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
+import { buildMongoFilters } from '@/utils/helpers';
 
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
@@ -35,8 +36,12 @@ export class CommentsController {
   }
 
   @Get()
-  async findAll(@Query() pagination: PaginationDto) {
-    const data = await this.commentsService.findAll(pagination);
+  async findAll(
+    @Query() pagination: PaginationDto,
+    @Query() rawQueries: { [key: string]: string },
+  ) {
+    const queries = buildMongoFilters(rawQueries);
+    const data = await this.commentsService.findAll(pagination, queries);
     return data;
   }
 
