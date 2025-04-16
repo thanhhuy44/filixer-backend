@@ -1,29 +1,28 @@
-FROM node:23-alpine
+# Stage 1: Build
 
-# Thiết lập thư mục làm việc trong container
+FROM node:23-alpine AS builder
+
 WORKDIR /app
 
-# Cập nhật npm và cài đặt Yarn
-RUN npm install -g npm@latest
+COPY package.json ./
+COPY yarn.lock ./
 
-RUN npm install -g @nestjs/cli
-
-RUN corepack enable && corepack prepare yarn@stable --activate
-
-# Sao chép file package.json và yarn.lock trước (giúp caching dependencies)
-COPY package.json yarn.lock ./
-
-# Cài đặt dependencies với Yarn
 RUN yarn install
 
-# Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
-# Biên dịch ứng dụng nếu dùng TypeScript
 RUN yarn build
 
-# Mở cổng mặc định của NestJS (nếu cần đổi, cập nhật trong `main.ts`)
+# Stage 2: Build
+
+FROM node:23-alpine 
+
+WORKDIR /app
+
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/dist ./dist
+RUN yarn install --production --frozen-lockfile && yarn cache clean --force
+
 EXPOSE 3030
 
-# Lệnh khởi động ứng dụng
-CMD ["yarn", "start:prod"]
+CMD ["node", "dist/main"]
