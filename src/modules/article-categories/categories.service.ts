@@ -8,7 +8,7 @@ import { Model } from 'mongoose';
 
 import { PaginationDto } from '@/common/dto/pagination.dto';
 import { RawQuery } from '@/types';
-import { ESortDirection } from '@/types/enum';
+import { EArticleStatus, ESortDirection } from '@/types/enum';
 import { convertToSlug } from '@/utils/helpers';
 import { Article } from '~/articles/entities/article.entity';
 
@@ -94,6 +94,7 @@ export class CategoriesService {
     const data = await this.ArticleModel.find({
       categories: id,
       isDeleted: false,
+      status: EArticleStatus.PUBLIC,
     })
       .sort([[sortBy, sortDirection]])
       .populate(['author', 'categories', 'thumbnail'])
